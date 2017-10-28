@@ -483,7 +483,7 @@ $$\rho_{min} = 2.84, \text{мг/см}$$
 $$\boxed{\boxed{\rho_{min} = (2.76 \pm 0.08) \text{мг/см}}}$$
 
 \newpage
-Таким образом, в данной лабораторной работе мы изучили колебания струны. 
+Таким образом, в данной лабораторной работе мы изучили колебания струны и поведение стоячих волн. Особо стоит отметить тот факт, что при больших амплитудах действительно наблюдались <<срывы>>, а также то, что некоторые моды так и не удалось достичь. Также интересным оказалось явление, при котором число пучностей было в два раза меньше, чем ожидалось, причем это состояние струна принимала всегда при данных значениях силы натяжения и возбуждающей частоты.
 
 \newpage
 Список использованной литературы:
@@ -493,6 +493,88 @@ $$\boxed{\boxed{\rho_{min} = (2.76 \pm 0.08) \text{мг/см}}}$$
 Ф.Ф.Игошин и др.; Под редакцией А.Д.Гладуна. --- МФТИ, 2004.
 	
 2. "Набор и верстка в системе \LaTeX "/С.М.Львовский. --- 2003.
+
+
+
+
+
+
+\vspace{1cm}
+\hspace{2cm}$m = 75$г
+\begin{flushleft}
+\begin{tikzpicture}
+\begin{axis}[
+	height = 9cm,
+	width  = 14cm,
+	every axis y label/.style={at = {(ticklabel cs: 0.5)}, rotate = 90, anchor = near ticklabel},
+	xlabel = {$n$},
+	ylabel = {$\nu_n$, Hz}
+]
+\addplot+[smooth, error bars/.cd, 
+	y dir = both, y explicit,
+	x dir = both, x explicit,
+	] 
+coordinates{
+	(1,  51.2) +- (0, 5)
+	(2, 101.0) +- (0, 10)
+	(3, 155.1) +- (0, 8)
+	(4, 210.6) +- (0, 6)
+	(5, 262.1) +- (0, 4)
+	(6, 311.0) +- (0, 4)
+	(7, 361.6) +- (0, 4)
+};
+\addplot+[smooth, error bars/.cd, 
+	y dir = both, y explicit,
+	x dir = both, x explicit,
+	] 
+coordinates{
+	(1,  48.9) +- (0, 10)
+	(2,  96.3) +- (0, 8)
+	(4, 191.4) +- (0, 10)
+	(5, 240.9) +- (0, 6)
+	(6, 287.1) +- (0, 4)
+};
+\addplot+[smooth, error bars/.cd, 
+	y dir = both, y explicit,
+	x dir = both, x explicit,
+	] 
+coordinates{
+	(1,  46.0) +- (0, 4)
+	(2,  82.3) +- (0, 8)
+	(3, 125.6) +- (0, 8)
+	(4, 169.2) +- (0, 6)
+	(5, 213.8) +- (0, 5)
+	(6, 258.3) +- (0, 6)
+};
+\addplot+[smooth, error bars/.cd, 
+	y dir = both, y explicit,
+	x dir = both, x explicit,
+	] 
+coordinates{
+	(1,  38.6) +- (0, 7)
+	(2,  74.0) +- (0, 10)
+	(3, 110.0) +- (0, 10)
+	(5, 183.0) +- (0, 8)
+	(6, 220.0) +- (0, 7)
+};
+\addplot+[smooth, error bars/.cd, 
+	y dir = both, y explicit,
+	x dir = both, x explicit,
+	] 
+coordinates{
+	(1,  58.0) +- (0, 8)
+	(2, 114.4) +- (0, 7)
+	(3, 170.0) +- (0, 6)
+	(4, 228.0) +- (0, 4)
+};
+\end{axis}
+\end{tikzpicture}
+\end{flushleft}
+
+
+
+
+
 
 
 \end{document}
