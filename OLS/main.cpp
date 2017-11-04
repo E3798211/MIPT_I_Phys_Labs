@@ -62,12 +62,15 @@ int WriteLine(double* x, size_t points_amnt, double A, double B, double A_0);
 
 // =============================================================
 
-fstream input  = OpenFile("input.txt");
-fstream output("output.txt");
+string def_input  = "input.txt";
+string def_output = "output.txt";
+
+fstream input  = OpenFile(def_input);
+fstream output = OpenFile(def_output);
 
 // =============================================================
 
-int main()
+int main(int argc, char* argv[])
 {
     int points_amnt = 0;
     CountLines(&points_amnt);
@@ -105,7 +108,7 @@ fstream OpenFile(string filename)
 {
     fstream input(filename);
     if(!input.is_open()){
-        cout << "No input file found!\n" << endl;
+        cout << "File " << filename << " wasn't found :(\n" << endl;
         exit(0);
     }
     return input;
