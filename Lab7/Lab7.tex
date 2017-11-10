@@ -1,0 +1,228 @@
+\documentclass[14pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{pgfplots}
+
+\usepackage{geometry} % Меняем поля страницы
+\geometry{left=2cm}% левое поле
+\geometry{right=1.5cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumii}{.\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+
+\begin{document}
+\begin{titlepage}
+	\begin{center}
+		\fontsize{18pt}{20pt}\selectfont
+		\textbf{Работа 1.4.4.}	
+	
+		\vspace{5cm}
+		\fontsize{24pt}{25pt}\selectfont
+		Исследование свободных колебаний связанных маятников
+	\end{center}
+	\begin{flushright}
+		\fontsize{18pt}{20pt}\selectfont
+		\vspace{14cm}
+		\hspace{-3cm}
+		\textit{Корнеев Е.С.}
+	\end{flushright}		
+\end{titlepage}
+
+\begin{center}
+	\fontsize{16pt}{18pt}\selectfont	
+	Исследование свободных колебаний связанных маятников
+\end{center}
+
+\fontsize{14pt}{16pt}\selectfont
+\vspace{1cm}
+\textbf{Цель работы:} изучение колебательной системы с двумя степенями свободы.
+
+\vspace{0.5cm}
+\textbf{В работе используются:} устновка с двумя одинаковыми математическими маятниками, бифилярно подвещенными на натянутую горизонтально струну, секундомер, измерительная линейка.
+
+\vspace{1cm}
+\textbf{Свободные колебания связанных маятников.} Рассмотрим простейшую модель с двумя степенями свободы --- два одинаковых маятника, связанных пружиной и совершающих колебания в плоскости рисунка. Маятники представляют собой невесомые спицы с насаженными на них маленькими тяжелыми шариками.
+
+Обозначения указаны на рисунке. Если углы отклонения маятника от положения равновесия достаточно малы 
+($\sin\varphi \approx \varphi,~\cos\varphi \approx 1 - \varphi/2$), то со стороны пружины на первый маятник действует момент силы, равный
+
+$$M_{21} = ka^2(\varphi_2 - \varphi_1)$$
+
+\noindent Аналогично второй маятник будет испытывать вращающий момент противоположного знака:
+
+$$M_{12} = -ka^2(\varphi_2 - \varphi_1)$$
+
+\noindent Эти моменты описывают связь между маятниками.
+
+Уравнения движения матяником имеют вид
+
+\begin{equation}\label{fluct_eq_1}
+ml^2\frac{d^2\varphi_1}{dt^2} = -mgl\varphi_1 + ka^2(\varphi_2 - \varphi_1)
+\end{equation}	
+\begin{equation}\label{fluct_eq_2}
+ml^2\frac{d^2\varphi_2}{dt^2} = -mgl\varphi_2 - ka^2(\varphi_2 - \varphi_1)
+\end{equation}
+
+\noindent Сложив эти два уравнения, находим
+
+\begin{equation}\label{fluct_sum}
+ml^2\frac{d^2}{dt^2}(\varphi_1 + \varphi_2) = -mgl(\varphi_1 + \varphi_2)
+\end{equation}
+
+Вычитание (\ref{fluct_eq_2}) - (\ref{fluct_eq_1}) дает
+
+\begin{equation}\label{fluct_div}
+ml^2\frac{d^2}{dt^2}(\varphi_1 - \varphi_2) = -(mgl + 2ka^2)(\varphi_1 - \varphi_2)
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% РИСУНОК 4.6 (стр. 232)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Решения уравнений (\ref{fluct_eq_1}) и (\ref{fluct_eq_2}) имеют вид:
+
+\begin{equation}\label{fluct_eq_solve_1}
+\varphi_1 + \varphi_2 = A\cos(\omega^+t + \alpha)
+\end{equation}
+\begin{equation}\label{fluct_eq_solve_2}
+\varphi_1 - \varphi_2 = B\cos(\omega^-t + \beta)
+\end{equation}
+
+$$\omega^+ = \sqrt{\frac{g}{l}}, ~ \omega^- = \sqrt{\frac{g}{l} + \frac{2ka^2}{ml^2}}$$
+
+\noindent где $A, B, \alpha, \beta$ - произвольные константы. Сладывая и вычитая (\ref{fluct_eq_solve_1}) и (\ref{fluct_eq_solve_2}), находим
+
+\begin{equation}\label{ph_1}
+\varphi_1 = \frac{1}{2}A\cos(\omega^+t + \alpha) + \frac{1}{2}B\cos(\omega^-t + \beta)
+\end{equation}
+\begin{equation}\label{ph_2}
+\varphi_2 = \frac{1}{2}A\cos(\omega^+t + \alpha) - \frac{1}{2}B\cos(\omega^-t + \beta)
+\end{equation}
+
+\noindent Для угловых скоростей при этом имеем
+
+\begin{equation}
+\dot \varphi_1 = -\frac{1}{2}A\sin(\omega^+t + \alpha) - \frac{1}{2}B\sin(\omega^-t + \beta)
+\end{equation}
+\begin{equation}
+\dot \varphi_2 = -\frac{1}{2}A\sin(\omega^+t + \alpha) + \frac{1}{2}B\sin(\omega^-t + \beta)
+\end{equation}
+
+Проанализируем полученные решения.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%
+%
+%
+%
+%	СТРАНИЦА 233 
+%
+%
+%
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+\setcounter{equation}{0}
+
+%
+% Here is new part of the book taken from 1.4.4.
+%
+
+Измерения проводятся на установке, изображенной на на рис. 1.
+
+Один конец струны прикреплен к вертикальной стойке установки, а другой конец переброшен через неподвижный блок и натянут при помощи груза массы 
+$M$. Точки струны $A$ и $B$ неподвижны. В точках $C$ и $D$, которые делят расстояние между $A$ и $B$ на три равные части (каждая длиной $a$), подвешены одинаковые математические маятники массой $m$ и длиной $l$. Каждый маятник подвешен на двух нитях в плоскости струны (бифилярно), чтобы колебания мятников проходили в плоскостях, перпендикулярных струне. Сила натяжения струны намного больше веса матяников ($M \gg m$). Вертикальная составляющая смещения струны никак не сказывается на движении маятников при малых отклонениях. Горизонтальная составляющая смещения струны, хоть она и мала по сравнению со смещениями маятников, осуществляет слабую связь между маятниками.
+
+На рис. 2. показаны смещения точек $C$ и $D$ струны и отклонения маятников в вертикальной (рис. 2а) и горизонтальной (рис. 2б) плоскостях. 
+
+При небольших отклонениях маятников для силы натяжения подвеса маятника $T$ имеем (рис. 2а)
+
+\begin{equation}
+mg \approx T
+\end{equation}
+
+Для движения матяников в горизонтальном направлении (рис. 2)
+
+\begin{equation}
+m\ddot x_1 = -T\sin\varphi_1 \approx -T\frac{x_1 - x_3}{l} \approx -mg\frac{x_1 - x_3}{l}
+\end{equation}
+\begin{equation}
+m\ddot x_2 = -T\sin\varphi_2 \approx -T\frac{x_2 - x_4}{l} \approx -mg\frac{x_2 - x_4}{l}
+\end{equation}
+
+Связь между натяжением струны и натяжением подвеса получаем из рис. 2:
+
+\begin{equation}
+T\frac{x_1 - x_3}{l} = F\frac{x_3}{a} + F\frac{x_3 - x_4}{a}
+\end{equation}
+\begin{equation}
+T\frac{x_2 - x_4}{l} = F\frac{x_4}{a} + F\frac{x_4 - x_3}{a}
+\end{equation}
+
+Введем безразмерный параметр
+
+\begin{equation}
+\sigma = \frac{T}{F} \frac{a}{l} = \frac{m}{M}\frac{a}{l}
+\end{equation}
+
+\noindent который в нашем случае много меньше единицы (связь слабая). Тогда из (4) и (5) получаем
+
+\begin{equation}
+\sigma x_1 = (2 + \sigma)x_3 - x_4,~~\sigma x_2 = (2 + \sigma)x_4 - x_3
+\end{equation}
+
+\noindent пренебрегая $\sigma$ по сравнению с 2, получаем
+
+\begin{equation}
+x_3 = \sigma\frac{2x_1 + x_2}{3},~~ x_4 = \sigma\frac{x_1 + 2x_2}{3}
+\end{equation}
+
+Уравнения движения маятников примут вид
+
+\begin{equation}
+\ddot x_1 + \frac{g}{l}(1 - \sigma)x_1 = \sigma\frac{g}{3l}(x_2 - x_1)
+\end{equation}
+\begin{equation}
+\ddot x_2 + \frac{g}{l}(1 - \sigma)x_2 = \sigma\frac{g}{3l}(x_1 - x_2)
+\end{equation}
+
+
+
+
+
+
+
+
+\end{document}
