@@ -228,14 +228,14 @@ int WriteLine(double* x, size_t points_amnt, double A, double B, double A_0)
     output << "\\addplot [mark = none]\ncoordinates{\n";
     output << "\t(" << x[0]               << ", " << x[0] * A + B               << ")" << "\n"
            << "\t(" << x[points_amnt - 1] << ", " << x[points_amnt - 1] * A + B << ")\n";
-    output << "};\n";
+    output << "};\n" << endl;
 
     output << "\nEnding near zero\n\n";
 
     output << "\\addplot [mark = none]\ncoordinates{\n";
     output << "\t(" << 0                  << ", " << B                          << ")" << "\n"
            << "\t(" << x[points_amnt - 1] << ", " << x[points_amnt - 1] * A + B << ")\n";
-    output << "};\n";
+    output << "};\n" << endl;
 
 
     output << "\n// ===================================";
@@ -247,14 +247,17 @@ int WriteLine(double* x, size_t points_amnt, double A, double B, double A_0)
     output << "\\addplot [mark = none]\ncoordinates{\n";
     output << "\t(" << x[0]               << ", " << x[0] * A_0               << ")" << "\n"
            << "\t(" << x[points_amnt - 1] << ", " << x[points_amnt - 1] * A_0 << ")\n";
-    output << "};\n";
+    output << "};\n" << endl;
 
     output << "\nEnding near zero\n\n";
 
     output << "\\addplot [mark = none]\ncoordinates{\n";
-    output << "\t(" << 0                  << ", " << 0                          << ")" << "\n"
+    output << "\t(" << 0                  << ", " << 0                        << ")" << "\n"
            << "\t(" << x[points_amnt - 1] << ", " << x[points_amnt - 1] * A_0 << ")\n";
-    output << "};\n";
+    output << "}; " << endl;
+
+    output.put('\n');
+    output.close();
 
     return OK;
 }
